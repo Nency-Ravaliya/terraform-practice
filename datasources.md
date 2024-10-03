@@ -41,3 +41,15 @@ resource "aws_instance" "example" {
 - **Data Sources** allow you to fetch information about existing resources that Terraform does not manage.
 - They are useful for dynamically referencing resources and sharing configurations.
 - Defined using the `data` block, they enable you to access properties of resources across your infrastructure setup.
+
+
+`main.tf`
+
+```
+output "os-version" {
+  value = data.local_file.os.content
+}
+data "local_file" "os" {
+  filename = "/etc/os-release"
+}
+```
