@@ -12,7 +12,7 @@ resource "local_file" "key_data" {
 }
 resource "tls_private_key" "private_key" {
   algorithm   = "RSA"
-  dsa_bits  = 2048
+  rsa_bits  = 2048
   ecdsa_curve = "P384"
 }
 resource "tls_cert_request" "csr" {
