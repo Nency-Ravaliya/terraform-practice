@@ -42,6 +42,7 @@ resource "aws_instance" "example" {
 - They are useful for dynamically referencing resources and sharing configurations.
 - Defined using the `data` block, they enable you to access properties of resources across your infrastructure setup.
 
+### ex1
 
 `main.tf`
 
@@ -49,7 +50,33 @@ resource "aws_instance" "example" {
 output "os-version" {
   value = data.local_file.os.content
 }
+
 data "local_file" "os" {
   filename = "/etc/os-release"
+}
+```
+
+### ex2
+
+`ebs.tf`
+
+```
+data "aws_ebs_volume" "gp2_volume" {
+  most_recent = true
+
+  filter {
+    name   = "volume-type"
+    values = ["gp2"]
+  }
+}
+```
+
+### ex3
+
+`s3.tf`
+
+```
+data "aws_s3_bucket" "selected" {
+  bucket_name = "bucket.test.com"
 }
 ```
