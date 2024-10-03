@@ -23,5 +23,5 @@ resource "tls_cert_request" "csr" {
     common_name  = "flexit.com"
     organization = "FlexIT Consulting Services"
   }
-}
+} 
 ```
