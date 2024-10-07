@@ -1,0 +1,22 @@
+`main.tf`
+
+```
+resource "aws_instance" "cerberus" {
+  ami           = "ami-06178cf087598769c"
+  instance_type = "m5.large"
+}
+
+resource "aws_key_pair" "cerberus-key" {
+  key_name   = "cerberus"
+  public_key = file(".ssh/cerberus.pub")
+}
+```
+
+`variable.tf`
+
+```
+variable "region" {
+  default = "eu-west-2"
+}
+```
+
