@@ -4,6 +4,7 @@
 resource "aws_instance" "cerberus" {
   ami           = "ami-06178cf087598769c"
   instance_type = "m5.large"
+  key_name = "cerberus"
 }
 
 resource "aws_key_pair" "cerberus-key" {
