@@ -21,3 +21,11 @@ variable "region" {
 }
 ```
 
+`install-nginx.sh`
+
+```
+#!/bin/bash
+sudo yum update -y
+sudo yum install nginx -y
+sudo systemctl start nginx
+```
